@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurodivergent Assistant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pomodoro-style.css">
+</head>
+<body>
+    <header>
+        <h1>ADHD Assistant</h1>
+    </header>
+    <main>
+        <!-- Kontener uzytkownikow -->
+        <section id="user-container">
+            <h2>Użytkownik</h2>
+            <table id="user-list">
+                <tr>
+                    <th>Imię</th>
+                    <th>Numer telefonu</th>
+                    <th>E-Mail</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td id="user-name"></td>
+                    <td id="user-phone"></td>
+                    <td id="user-email"></td>
+                    <td><button onclick="showEditUserRow()">Edytuj użytkownika</button></td>
+                </tr>
+                <tr id="user-edit-row" hidden>
+                    <td><input id="user-name-input" type="text"/></td>
+                    <td><input id="user-phone-input" type="text"/></td>
+                    <td><input id="user-email-input" type="text"/></td>
+                    <td><button id="edit-user-button">Aktualizuj użytkownika</button></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Kontener widżetów -->
+        <section id="widgets-container">
+            <h2>Twoje widżety:</h2>
+            <!-- Formularz do tworzenia widżetów -->
+            <form id="widget-form">
+                <label for="widget-title">Tytuł widżetu:</label>
+                <input type="text" id="widget-title" name="title" required>
+                <label for="widget-content">Treść widżetu:</label>
+                <textarea id="widget-content" name="content" required></textarea>
+                <input type="hidden" id="widget-type" name="type">
+                <button type="submit">Dodaj widżet</button>
+            </form>
+
+            <div id="widgets-list"></div>
+            <!-- Dodaj widżety do wody i leków -->
+            <button onclick="addWaterWidget()">Dodaj widżet wody</button>
+            <button onclick="addMedicationWidget()">Dodaj widżet leków</button>
+        </section>
+
+        <section id="clock-container">
+            <div id="container">
+                <div id="timer">
+                    <div id="time">
+                        <span id="minutes">25</span>
+                        <span id="colon">:</span>
+                        <span id="seconds">00</span>
+                    </div>
+                    <div id="filler"></div>
+                </div>
+
+                <div id="buttons">
+                    <button id="work">Praca</button>
+                    <button id="shortBreak">Krótka przerwa</button>
+                    <button id="longBreak">Długa przerwa</button>
+                    <button id="stop">Stop</button>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="todo-container">
+            <h2>Lista do zrobienia</h2>
+            <table id="todo-list">
+                <tr id="todo-add-row">
+                    <td></td>
+                    <td><input id="todo-text-input" type="text"/></td>
+                    <td><button onclick="addTodoElement()">Dodaj</button></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/widgetScript.js"></script>
+    <script src="/js/userScript.js"></script>
+    <script src="/js/todoScrip.js"></script>
+    <script src="/js/pomodoroScript.js"></script>
+</body>
+</html>
